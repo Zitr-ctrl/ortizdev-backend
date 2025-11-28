@@ -11,7 +11,14 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ["*"]  # Luego lo ajustas para producción
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "ortizdev-backend-production.up.railway.app",
+    "www.ortizdev.com",
+    "ortizdev.com",
+]
+
 
 # ===========================
 # Apps instaladas
@@ -50,6 +57,8 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    "https://www.ortizdev.com",
+    "https://ortizdev.com",
     'https://ortizdev-backend-production.up.railway.app',
     "https://*.railway.app"
 ]
@@ -61,7 +70,9 @@ ROOT_URLCONF = 'backend.urls'
 # CORS
 # ===========================
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # React dev
+    "http://localhost:5173",
+    "https://www.ortizdev.com",
+    "https://ortizdev.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
