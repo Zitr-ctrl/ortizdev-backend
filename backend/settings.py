@@ -49,6 +49,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://ortizdev-backend-production.up.railway.app',
+    "https://*.railway.app"
+]
+
+
 ROOT_URLCONF = 'backend.urls'
 
 # ===========================
