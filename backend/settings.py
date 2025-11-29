@@ -2,6 +2,9 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 load_dotenv()  # carga el .env
 
@@ -35,10 +38,12 @@ INSTALLED_APPS = [
     # Terceros
     'rest_framework',
     'corsheaders',
+    'cloudinary',
+    'cloudinary_storage',
 
     # Local apps
     'projects',
-    #'services',
+    # 'services',
     'contact',
 ]
 
@@ -62,6 +67,17 @@ CSRF_TRUSTED_ORIGINS = [
     'https://ortizdev-backend-production.up.railway.app',
     "https://*.railway.app"
 ]
+
+# ===========================
+# Cloudinary
+# ===========================
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv("CLOUDINARY_CLOUD_NAME"),
+    'API_KEY': os.getenv("CLOUDINARY_API_KEY"),
+    'API_SECRET': os.getenv("CLOUDINARY_API_SECRET"),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 ROOT_URLCONF = 'backend.urls'
